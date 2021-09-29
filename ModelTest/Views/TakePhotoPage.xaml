@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             x:Class="ModelTest.Views.TakePhotoPage">
+    <ContentPage.Content>
+
+            <Grid HorizontalOptions="CenterAndExpand" Margin="10, 10, 10, 10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="13*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Image Grid.Row="0" x:Name="PhotoImage"/>
+                <StackLayout Orientation="Horizontal" Grid.Row="1" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                    <Button x:Name="CameraButton" Text="Take Photo" Clicked="CameraButton_Clicked" HorizontalOptions="Center" CornerRadius="10"/>
+                    <Button x:Name="Continue" Text="Continue" Clicked="Continue_Clicked" HorizontalOptions="Center" CornerRadius="10"/>
+                </StackLayout>
+            </Grid>
+
+        
+    </ContentPage.Content>
+</ContentPage>

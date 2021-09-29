@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ModelTest.App">
+    <!--
+        Define global resources and styles here, that apply to all pages in your app.
+    -->
+    <Application.Resources>
+        <ResourceDictionary>
+            <Color x:Key="TextDark">#494d4c</Color>
+            <Color x:Key="TextDate">#868686</Color>
+            <Color x:Key="TextLight">#ffffff</Color>
+
+            <!--DON't CHANGE THESE-->
+            <Color x:Key="ColorInventory">#6dbf69</Color>
+            <Color x:Key="ColorOrder">#094785</Color>
+            <Color x:Key="DynamicInventory">#fff4c9</Color>
+            <Color x:Key="DynamicText">#fff4c9</Color>
+            <!--<Color x:Key="ColorAccent">#b3d991</Color>-->
+            <Color x:Key="ColorAlternate">#f9f9f9</Color>
+            <Color x:Key="ColorPrimary">#449A45</Color>
+            <Color x:Key="ColorRed">#A02242</Color>
+            <Color x:Key="ColorDark">#B7B7B7</Color>
+            <Color x:Key="ColorAccent">#737373</Color>
+
+            <Color x:Key="ColorBack">#ececec</Color>
+            <Color x:Key="ColorGradientDark">#ececec</Color>
+            <Color x:Key="ColorLight">#e2f2d3</Color>
+            <!--e2f2d3-->
+            <Color x:Key="ColorLightAlternate">#bed7e8</Color>
+            <Color x:Key="Black">#000000</Color>
+            <Style TargetType="Button">
+                <Setter Property="TextColor" Value="White"></Setter>
+                <Setter Property="VisualStateManager.VisualStateGroups">
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="{DynamicResource ColorPrimary}" />
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="Disabled">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="{DynamicResource ColorAccent}" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter>
+            </Style>
+        </ResourceDictionary>        
+    </Application.Resources>
+</Application>
