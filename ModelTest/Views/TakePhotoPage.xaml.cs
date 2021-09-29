@@ -27,11 +27,11 @@ namespace ModelTest.Views
             }
             Item.Initialize();
         }
-
+        //PhotoSize = Plugin.Media.Abstractions.PhotoSize.MaxWidthHeight, MaxWidthHeight = 600
         private async void CameraButton_Clicked(object sender, EventArgs e)
         {
             CameraButton.IsEnabled = false;
-            var photo = await Plugin.Media.CrossMedia.Current.TakePhotoAsync(new Plugin.Media.Abstractions.StoreCameraMediaOptions() { PhotoSize = Plugin.Media.Abstractions.PhotoSize.MaxWidthHeight, MaxWidthHeight = 600});
+            var photo = await Plugin.Media.CrossMedia.Current.TakePhotoAsync(new Plugin.Media.Abstractions.StoreCameraMediaOptions() { });
             Console.WriteLine(photo.GetStream());
             Console.WriteLine(photo.GetStream().GetType());
             byte[] imageData = new byte[photo.GetStream().Length];
@@ -49,9 +49,7 @@ namespace ModelTest.Views
         }
 
         private async void Continue_Clicked(object sender, EventArgs e)
-        {
-            var res1 = await Item.imageClient.GetAsync("http://192.168.3.115:5000");
-            
+        {            
             form["CustomerLogin"] = "1";
             form["LotNumber"] = "DOA2102035";
             form["SpecimenId"] = "2021";
@@ -61,7 +59,6 @@ namespace ModelTest.Views
             form["Password"] = "Ansh1806";
             form["Transform"] = "true";
             form["IsFaint"] = "true";
-            //form["ImageData"] = photoToSend;
             Console.WriteLine(form["ImageData"]);
             var res = await Item.imageClient.PostAsync("strip-reader", new StringContent(form.ToString(), System.Text.Encoding.UTF8, "application/json"));
             var resString = await res.Content.ReadAsStringAsync();
