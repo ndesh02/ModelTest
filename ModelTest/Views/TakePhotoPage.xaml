@@ -2,10 +2,11 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
-             x:Class="ModelTest.Views.TakePhotoPage">
+             x:Class="ModelTest.Views.TakePhotoPage"
+             BackgroundColor="White">
     <ContentPage.Content>
 
-            <Grid HorizontalOptions="CenterAndExpand" Margin="10, 10, 10, 10">
+            <Grid HorizontalOptions="CenterAndExpand" Margin="10, 10, 10, 10" >
                 <Grid.RowDefinitions>
                     <RowDefinition Height="13*"/>
                     <RowDefinition Height="*"/>

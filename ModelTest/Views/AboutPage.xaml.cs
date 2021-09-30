@@ -15,7 +15,7 @@ namespace ModelTest.Views
             logo.Source = ImageSource.FromResource("ModelTest.Images.RapidResponseLogo2.png");
         }
 
-        public async Task<bool> GetCameraPermission()
+         public static async Task<bool> GetCameraPermission()
         {
             try
             {
@@ -47,9 +47,38 @@ namespace ModelTest.Views
 
         }
 
+        public static bool GetWifiPermission()
+        {
+            try
+            {
+
+                var status = Connectivity.NetworkAccess;
+
+                if (status == NetworkAccess.Internet)
+                {
+                    Console.WriteLine("Oh no");
+                    return false;
+                    //status = await Permissions.RequestAsync<Permissions.NetworkState>();
+                }
+
+                else
+                {
+
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+
+
+        }
+
         private async void Photo_Clicked(object sender, EventArgs e)
         {
             await GetCameraPermission();
+            GetWifiPermission();
             await Shell.Current.GoToAsync("TakePhotoPage");
         }
     }

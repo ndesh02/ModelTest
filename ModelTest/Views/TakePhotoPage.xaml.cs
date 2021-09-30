@@ -49,9 +49,16 @@ namespace ModelTest.Views
         }
 
         private async void Continue_Clicked(object sender, EventArgs e)
-        {            
+        {
+            try
+            {
+                var res1 = await Item.imageClient.GetAsync("/");
+            }catch(Exception ex)
+            {
+
+            }
             form["CustomerLogin"] = "1";
-            form["LotNumber"] = "DOA2102035";
+            form["LotNumber"] = "DOA2006167A";
             form["SpecimenId"] = "2021";
             form["SaveImage"] = "true";
             form["ImageFormat"] = "png";
@@ -60,6 +67,7 @@ namespace ModelTest.Views
             form["Transform"] = "true";
             form["IsFaint"] = "true";
             Console.WriteLine(form["ImageData"]);
+            AboutPage.GetWifiPermission();
             var res = await Item.imageClient.PostAsync("strip-reader", new StringContent(form.ToString(), System.Text.Encoding.UTF8, "application/json"));
             var resString = await res.Content.ReadAsStringAsync();
             try
