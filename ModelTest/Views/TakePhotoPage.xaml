@@ -8,14 +8,16 @@
 
             <Grid HorizontalOptions="CenterAndExpand" Margin="10, 10, 10, 10" >
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="13*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="12*"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <Image Grid.Row="0" x:Name="PhotoImage"/>
-                <StackLayout Orientation="Horizontal" Grid.Row="1" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                <Image Grid.Row="1" x:Name="PhotoImage"/>
+                <StackLayout Orientation="Horizontal" Grid.Row="2" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
                     <Button x:Name="CameraButton" Text="Take Photo" Clicked="CameraButton_Clicked" HorizontalOptions="Center" CornerRadius="10"/>
                     <Button x:Name="Continue" Text="Continue" Clicked="Continue_Clicked" HorizontalOptions="Center" CornerRadius="10"/>
                 </StackLayout>
+                <Entry x:Name="LotNumber" BackgroundColor="White" TextColor="{StaticResource Black}" Grid.Row="0" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Placeholder="Lot Number"/>
             </Grid>
 
         

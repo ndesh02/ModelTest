@@ -79,7 +79,14 @@ namespace ModelTest.Views
         {
             await GetCameraPermission();
             GetWifiPermission();
-            await Shell.Current.GoToAsync("TakePhotoPage");
+            try
+            {
+                await Shell.Current.GoToAsync("TakePhotoPage");
+            }catch (Exception ex)
+            {
+                await Shell.Current.GoToAsync("/./TakePhotoPage");
+            }
+            
         }
     }
 }

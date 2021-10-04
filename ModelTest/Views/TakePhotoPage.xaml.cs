@@ -25,7 +25,8 @@ namespace ModelTest.Views
             {
                 Continue.IsEnabled = false;
             }
-            Item.Initialize();
+            if(Item.isInitialized == false)
+                Item.Initialize();
         }
         //PhotoSize = Plugin.Media.Abstractions.PhotoSize.MaxWidthHeight, MaxWidthHeight = 600
         private async void CameraButton_Clicked(object sender, EventArgs e)
@@ -39,7 +40,7 @@ namespace ModelTest.Views
             Console.WriteLine(photo.GetStream().Length);
             await photo.GetStream().ReadAsync(imageData, 0, Convert.ToInt32(photo.GetStream().Length));
             Console.WriteLine(imageData);
-            form["ImageData"] = Convert.ToBase64String(imageData);
+            form["Imagedata"] = Convert.ToBase64String(imageData);
             if(photo != null)
             {
                 PhotoImage.Source = ImageSource.FromStream(() => { return photo.GetStream(); });
@@ -50,6 +51,8 @@ namespace ModelTest.Views
 
         private async void Continue_Clicked(object sender, EventArgs e)
         {
+            CameraButton.IsEnabled = false;
+            Continue.IsEnabled = false;
             try
             {
                 var res1 = await Item.imageClient.GetAsync("/");
@@ -58,7 +61,7 @@ namespace ModelTest.Views
 
             }
             form["CustomerLogin"] = "1";
-            form["LotNumber"] = "DOA2006167A";
+            form["LotNumber"] = LotNumber.Text;
             form["SpecimenId"] = "2021";
             form["SaveImage"] = "true";
             form["ImageFormat"] = "png";
@@ -66,7 +69,8 @@ namespace ModelTest.Views
             form["Password"] = "Ansh1806";
             form["Transform"] = "true";
             form["IsFaint"] = "true";
-            Console.WriteLine(form["ImageData"]);
+            Console.WriteLine(form["Imagedata"]);
+            var image = form["Imagedata"];
             AboutPage.GetWifiPermission();
             var res = await Item.imageClient.PostAsync("strip-reader", new StringContent(form.ToString(), System.Text.Encoding.UTF8, "application/json"));
             var resString = await res.Content.ReadAsStringAsync();
@@ -78,7 +82,9 @@ namespace ModelTest.Views
             {
                 Item.results = null;
             }
-            
+            CameraButton.IsEnabled = true;
+            Continue.IsEnabled = true;
+            PhotoImage.Source = null;
             await Shell.Current.GoToAsync("DisplayResultsPage");
         }
     }
