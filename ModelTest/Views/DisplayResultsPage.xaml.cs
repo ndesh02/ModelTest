@@ -26,6 +26,10 @@ namespace ModelTest.Views
                     drug4.Text = Item.results["data"]["drugs"][3].ToString();
                     drug5.Text = Item.results["data"]["drugs"][4].ToString();
                     drug6.Text = Item.results["data"]["drugs"][5].ToString();
+                    drug7.Text = Item.results["data"]["drugs"][6].ToString();
+                    drug8.Text = Item.results["data"]["drugs"][7].ToString();
+                    drug9.Text = Item.results["data"]["drugs"][8].ToString();
+                    drug10.Text = Item.results["data"]["drugs"][9].ToString();
                 }
                 catch(Exception ex)
                 {

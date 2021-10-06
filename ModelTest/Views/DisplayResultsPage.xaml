@@ -16,7 +16,7 @@
             <Label x:Name="drug8" Text="Placeholder" FontSize="16" TextColor="Black"/>
             <Label x:Name="drug9" Text="Placeholder" FontSize="16" TextColor="Black"/>
             <Label x:Name="drug10" Text="Placeholder" FontSize="16" TextColor="Black"/>
-            <Button Text="Done" Clicked="Done_Clicked" HorizontalOptions="CenterAndExpand" CornerRadius="10" IsVisible="false"/>
+          <!--  <Button Text="Done" Clicked="Done_Clicked" HorizontalOptions="CenterAndExpand" CornerRadius="10" IsVisible="false"/>-->
         </StackLayout>
         </ScrollView>
     </ContentPage.Content>

@@ -68,9 +68,7 @@ namespace ModelTest.Views
             form["UserName"] = "ansh.sahny";
             form["Password"] = "Ansh1806";
             form["Transform"] = "true";
-            form["IsFaint"] = "true";
-            Console.WriteLine(form["Imagedata"]);
-            var image = form["Imagedata"];
+            form["IsFaint"] = faintLines.IsToggled.ToString();
             AboutPage.GetWifiPermission();
             var res = await Item.imageClient.PostAsync("strip-reader", new StringContent(form.ToString(), System.Text.Encoding.UTF8, "application/json"));
             var resString = await res.Content.ReadAsStringAsync();
